@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel文本分析工具</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        
+        <h1 class="text-center mb-4"><i class="bi bi-arrow-through-heart"></i> 为宝宝量身定制</h1>
+        
+        <div class="row">
+            <!-- 文件上传区域 -->
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>上传Excel文件</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                
+                                <div class="upload-box" id="uploadBox1">
+                                    <input type="file" class="d-none" id="fileInput1" accept=".xlsx,.xls">
+                                    <button class="btn btn-primary w-100" onclick="document.getElementById('fileInput1').click()">
+                                        上传德众堂文件
+                                    </button>
+                                    <div class="mt-2 sheet-selector d-none" id="sheetSelector1">
+                                        <select class="form-select" id="sheetSelect1">
+                                            <option value="">选择Sheet</option>
+                                        </select>
+                                        <button class="btn btn-success mt-2 w-100" onclick="analyze(1)">分析</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="upload-box" id="uploadBox2">
+                                    <input type="file" class="d-none" id="fileInput2" accept=".xlsx,.xls">
+                                    <button class="btn btn-primary w-100" onclick="document.getElementById('fileInput2').click()">
+                                        上传轩济堂文件
+                                    </button>
+                                    <div class="mt-2 sheet-selector d-none" id="sheetSelector2">
+                                        <select class="form-select" id="sheetSelect2">
+                                            <option value="">选择Sheet</option>
+                                        </select>
+                                        <button class="btn btn-success mt-2 w-100" onclick="analyze(2)">分析</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="upload-box" id="uploadBox3">
+                                    <input type="file" class="d-none" id="fileInput3" accept=".xlsx,.xls">
+                                    <button class="btn btn-primary w-100" onclick="document.getElementById('fileInput3').click()">
+                                        上传宁合中医文件
+                                    </button>
+                                    <div class="mt-2 sheet-selector d-none" id="sheetSelector3">
+                                        <select class="form-select" id="sheetSelect3">
+                                            <option value="">选择Sheet</option>
+                                        </select>
+                                        <button class="btn btn-success mt-2 w-100" onclick="analyze(3)">分析</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 分析结果区域 -->
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5>分析结果</h5>
+                        <button class="btn btn-sm btn-outline-secondary" onclick="copyAllResults()">
+                            <i class="bi bi-clipboard"></i> 复制全部
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div id="analysisResults">
+                            <p class="text-muted">请上传文件并选择Sheet进行分析</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 预览区域 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5>文本预览</h5>
+                        <button class="btn btn-sm btn-outline-secondary" onclick="copyPreview()">
+                            <i class="bi bi-clipboard"></i> 复制
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div id="previewArea" class="preview-text">
+                            <p class="text-muted">分析结果将显示在这里</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
